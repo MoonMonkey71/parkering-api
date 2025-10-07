@@ -29,3 +29,4 @@ Automatically deployed to Azure Functions via GitHub Actions when code is pushed
 # Trigger etter portal-kobling Tue Oct  7 13:58:38 CEST 2025
 # Azure Web Apps Deploy test Tue Oct  7 14:05:49 CEST 2025
 # Azure CLI direct deployment Tue Oct  7 14:07:07 CEST 2025
+# Test Azure workflow Tue Oct  7 14:14:10 CEST 2025
