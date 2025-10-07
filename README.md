@@ -19,3 +19,4 @@ Automatically deployed to Azure Functions via GitHub Actions when code is pushed
 - `JWT_SECRET` - Secret key for JWT tokens
 - `NODE_ENV` - Environment (production)
 - `WEBSITE_NODE_DEFAULT_VERSION` - Node.js version (20)# Trigger deployment
+# Trigger deployment Tue Oct  7 13:42:35 CEST 2025
