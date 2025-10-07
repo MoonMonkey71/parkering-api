@@ -66,3 +66,4 @@ export function sanitizeUser(user: User): User {
     const { password, ...sanitized } = user;
     return sanitized as User;
 }
+

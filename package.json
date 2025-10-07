@@ -2,7 +2,7 @@
   "name": "parkering-api",
   "version": "1.0.0",
   "description": "Azure Functions API for Parkering.no",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "func start",
     "test": "echo \"Error: no test specified\" && exit 1"

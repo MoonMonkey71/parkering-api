@@ -90,3 +90,4 @@ PRINT 'Sample users created:';
 PRINT '- test@example.com (password: test123)';
 PRINT '- eugen.nygaard@orizzontes.com (password: test123)';
 PRINT 'Sample parking listings created for testing.';
+
