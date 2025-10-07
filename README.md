@@ -26,3 +26,4 @@ Automatically deployed to Azure Functions via GitHub Actions when code is pushed
 # Azure Functions action deployment Tue Oct  7 13:49:49 CEST 2025
 # Azure Web Apps action deployment Tue Oct  7 13:51:23 CEST 2025
 # Azure CLI publish profile deployment Tue Oct  7 13:53:03 CEST 2025
+# Trigger etter portal-kobling Tue Oct  7 13:58:38 CEST 2025
