@@ -18,4 +18,4 @@ Automatically deployed to Azure Functions via GitHub Actions when code is pushed
 - `SQL_CONNECTION_STRING` - Azure SQL Database connection string
 - `JWT_SECRET` - Secret key for JWT tokens
 - `NODE_ENV` - Environment (production)
-- `WEBSITE_NODE_DEFAULT_VERSION` - Node.js version (20)
+- `WEBSITE_NODE_DEFAULT_VERSION` - Node.js version (20)# Trigger deployment
