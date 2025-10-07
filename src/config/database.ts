@@ -1,34 +1,39 @@
 import sql from 'mssql';
 
-const config: sql.config = {
-    server: process.env.SQL_SERVER || 'parkering-sql-1759689226.database.windows.net',
-    database: process.env.SQL_DATABASE || 'parkering_db',
-    user: process.env.SQL_USER || 'parkeringadmin',
-    password: process.env.SQL_PASSWORD || '3dvS0lk3UmAmEx1NKJXKUM+01m0BpClyTpmmIEMLDXs=',
-    options: {
-        encrypt: true,
-        trustServerCertificate: false,
-        enableArithAbort: true,
-        requestTimeout: 30000,
-        connectTimeout: 30000
-    },
-    pool: {
-        max: 10,
-        min: 0,
-        idleTimeoutMillis: 30000
-    }
-};
-
+// Global delt connection pool basert på SQL_CONNECTION_STRING.
 let pool: sql.ConnectionPool | null = null;
+let poolConnecting: Promise<sql.ConnectionPool> | null = null;
 
 export async function getConnection(): Promise<sql.ConnectionPool> {
-    if (!pool) {
-        pool = new sql.ConnectionPool(config);
-        await pool.connect();
+    if (pool && pool.connected) {
+        return pool;
     }
-    return pool;
+
+    if (poolConnecting) {
+        return poolConnecting;
+    }
+
+    const connectionString = process.env.SQL_CONNECTION_STRING;
+    if (!connectionString) {
+        throw new Error('Missing SQL_CONNECTION_STRING application setting');
+    }
+
+    pool = new sql.ConnectionPool(connectionString);
+    poolConnecting = pool.connect()
+        .then((connectedPool) => {
+            poolConnecting = null;
+            return connectedPool;
+        })
+        .catch((error) => {
+            poolConnecting = null;
+            pool = null;
+            throw error;
+        });
+
+    return poolConnecting;
 }
 
+// Behold funksjonen for fremtidig bruk, men ikke kall denne pr request.
 export async function closeConnection(): Promise<void> {
     if (pool) {
         await pool.close();
