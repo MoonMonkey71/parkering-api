@@ -20,3 +20,4 @@ Automatically deployed to Azure Functions via GitHub Actions when code is pushed
 - `NODE_ENV` - Environment (production)
 - `WEBSITE_NODE_DEFAULT_VERSION` - Node.js version (20)# Trigger deployment
 # Trigger deployment Tue Oct  7 13:42:35 CEST 2025
+# Test deployment Tue Oct  7 13:45:13 CEST 2025
