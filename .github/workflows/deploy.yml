@@ -6,10 +6,17 @@ on:
   pull_request:
     branches: [ main ]
 
+#env:
+#  AZURE_FUNCTIONAPP_NAME: parkering-api-1759689187
+#  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
+#  NODE_VERSION: '20.x'
+
 env:
   AZURE_FUNCTIONAPP_NAME: parkering-api-1759689187
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'parkering-api'
   NODE_VERSION: '20.x'
+  SQL_CONNECTION_STRING: ${{ secrets.SQL_CONNECTION_STRING }}
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
 jobs:
   build-and-deploy:
