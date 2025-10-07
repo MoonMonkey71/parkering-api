@@ -12,8 +12,8 @@ on:
 #  NODE_VERSION: '20.x'
 
 env:
-  AZURE_FUNCTIONAPP_NAME: parkering-api-1759689187
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'parkering-api'
+  AZURE_FUNCTIONAPP_NAME: parkering-api-1759835139
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
   NODE_VERSION: '20.x'
   SQL_CONNECTION_STRING: ${{ secrets.SQL_CONNECTION_STRING }}
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
@@ -36,10 +36,8 @@ jobs:
     - name: 'Resolve Project Dependencies Using Npm'
       shell: bash
       run: |
-        pushd '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        npm install
+        npm ci || npm install
         npm run build
-        popd
 
     - name: 'Deploy to Azure Functions'
       uses: Azure/functions-action@v1
